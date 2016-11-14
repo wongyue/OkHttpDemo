@@ -245,12 +245,13 @@ public class OKhttpUtils {
 
         /**
          * 向服务器提交String请求
+         *
          * @param url
          * @param content
          * @param callBack
          */
-        public void sendStringByPostMethod(String url,String content,final JsonStrCallback callBack){
-                Request request = new Request.Builder().url(url).post(RequestBody.create(MEDIA_TYPE_MARKDOWN,content)).build();
+        public void sendStringByPostMethod(String url, String content, final JsonStrCallback callBack) {
+                Request request = new Request.Builder().url(url).post(RequestBody.create(MEDIA_TYPE_MARKDOWN, content)).build();
                 client.newCall(request).enqueue(new Callback() {
                         @Override
                         public void onFailure(Call call, IOException e) {
@@ -259,8 +260,8 @@ public class OKhttpUtils {
 
                         @Override
                         public void onResponse(Call call, Response response) throws IOException {
-                                if (response!=null&&response.isSuccessful()){
-                                        resultJSONStr(response.body().string(),callBack);
+                                if (response != null && response.isSuccessful()) {
+                                        resultJSONStr(response.body().string(), callBack);
                                 }
                         }
                 });
